@@ -50,9 +50,5 @@ public class Main {
     public String about() {
         return "about";
     }
-    
-//    @GetMapping("/signin")
-//    public String signIn() {
-//    	return "signin";
-//    }
+   
 }

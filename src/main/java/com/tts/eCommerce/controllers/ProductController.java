@@ -20,8 +20,8 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String show(@PathVariable int id, Model model) {
-        Product product = productService.findById(id);
-        model.addAttribute(product);
+        Product productID = productService.findById(id);
+        model.addAttribute("product", productID);
         return "product";
     }
 
