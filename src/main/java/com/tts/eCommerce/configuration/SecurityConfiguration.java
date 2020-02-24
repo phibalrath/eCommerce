@@ -26,12 +26,17 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 protected void configure(HttpSecurity http) throws Exception {
  http
      .authorizeRequests()
-         .antMatchers("/cart").authenticated()
+     .antMatchers("/").permitAll()
+     .antMatchers("/console/**").permitAll()
+     .antMatchers("/cart").authenticated()
      .and().formLogin()
          .loginPage("/signin")
          .loginProcessingUrl("/login")
      .and().logout()
          .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
          .logoutSuccessUrl("/");
+ 	
+ 	http.csrf().disable();
+ 	http.headers().frameOptions().disable();
 }
 }
